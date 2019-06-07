@@ -154,10 +154,17 @@
                   },
                   on: {
                     click: () => {
-                      if(params.row.status === config.nodeStatus.stopped) {
+
+                      // if(params.row.status === config.nodeStatus.stopped) {
+                      //   this.showMessage('info', '节点已处于禁用状态');
+                      // } else {
+                      //   this.updateProviderStatus(params.row, this.formData.serviceName, params.row.ip, params.row.port, config.nodeStatus.stopped);
+                      // }
+                      // for test scanner
+                      if(params.row.status === config.nodeStatus.dead) {
                         this.showMessage('info', '节点已处于禁用状态');
                       } else {
-                        this.updateProviderStatus(params.row, this.formData.serviceName, params.row.ip, params.row.port, config.nodeStatus.stopped);
+                        this.updateProviderStatus(params.row, this.formData.serviceName, params.row.ip, params.row.port, config.nodeStatus.dead);
                       }
                     }
                   }
