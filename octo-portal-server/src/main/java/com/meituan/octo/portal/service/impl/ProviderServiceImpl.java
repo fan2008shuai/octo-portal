@@ -67,12 +67,12 @@ public class ProviderServiceImpl implements ProviderService {
         try {
             long curTime = System.currentTimeMillis() / 1000;
 
-            String parentData = zkClient.getData(providerPath);
-            ProviderNodeData providerNodeData = JsonUtil.parseJson(parentData, ProviderNodeData.class);
-            if (providerNodeData != null) {
-                providerNodeData.setLastUpdateTime(curTime);
-                zkClient.setData(providerPath, JsonUtil.toString(providerNodeData));
-            }
+//            String parentData = zkClient.getData(providerPath);
+//            ProviderNodeData providerNodeData = JsonUtil.parseJson(parentData, ProviderNodeData.class);
+//            if (providerNodeData != null) {
+//                providerNodeData.setLastUpdateTime(curTime);
+//                zkClient.setData(providerPath, JsonUtil.toString(providerNodeData));
+//            }
 
             String nodeData = zkClient.getData(providerDescPath);
             ProviderDesc providerDesc = JsonUtil.parseJson(nodeData, ProviderDesc.class);
@@ -80,6 +80,7 @@ public class ProviderServiceImpl implements ProviderService {
             providerDesc.setStatus(newStatus);
             providerDesc.setLastUpdateTime(curTime);
             zkClient.setData(providerDescPath, JsonUtil.toString(providerDesc));
+            System.out.println("updateProviderStatus: " + JsonUtil.toString(providerDesc));
             return JsonUtil.createSuccess(null);
         } catch (Exception e) {
             LOGGER.error("update provider status failed: {}", e);
@@ -95,12 +96,12 @@ public class ProviderServiceImpl implements ProviderService {
         try {
             long curTime = System.currentTimeMillis() / 1000;
 
-            String parentData = zkClient.getData(providerPath);
-            ProviderNodeData providerNodeData = JsonUtil.parseJson(parentData, ProviderNodeData.class);
-            if (providerNodeData != null) {
-                providerNodeData.setLastUpdateTime(curTime);
-                zkClient.setData(providerPath, JsonUtil.toString(providerNodeData));
-            }
+//            String parentData = zkClient.getData(providerPath);
+//            ProviderNodeData providerNodeData = JsonUtil.parseJson(parentData, ProviderNodeData.class);
+//            if (providerNodeData != null) {
+//                providerNodeData.setLastUpdateTime(curTime);
+//                zkClient.setData(providerPath, JsonUtil.toString(providerNodeData));
+//            }
 
             String nodeData = zkClient.getData(providerDescPath);
             ProviderDesc providerDesc = JsonUtil.parseJson(nodeData, ProviderDesc.class);
@@ -109,6 +110,7 @@ public class ProviderServiceImpl implements ProviderService {
             providerDesc.setLastUpdateTime(curTime);
             zkClient.setData(providerDescPath, JsonUtil.toString(providerDesc));
 
+            System.out.println("updateProviderWeight: " + JsonUtil.toString(providerDesc));
             return JsonUtil.createSuccess(null);
         } catch (Exception e) {
             LOGGER.error("update provider weight failed: {}", e);
@@ -124,12 +126,12 @@ public class ProviderServiceImpl implements ProviderService {
         try {
             long curTime = System.currentTimeMillis() / 1000;
 
-            String parentData = zkClient.getData(providerPath);
-            ProviderNodeData providerNodeData = JsonUtil.parseJson(parentData, ProviderNodeData.class);
-            if (providerNodeData != null) {
-                providerNodeData.setLastUpdateTime(curTime);
-                zkClient.setData(providerPath, JsonUtil.toString(providerNodeData));
-            }
+//            String parentData = zkClient.getData(providerPath);
+//            ProviderNodeData providerNodeData = JsonUtil.parseJson(parentData, ProviderNodeData.class);
+//            if (providerNodeData != null) {
+//                providerNodeData.setLastUpdateTime(curTime);
+//                zkClient.setData(providerPath, JsonUtil.toString(providerNodeData));
+//            }
 
             zkClient.delete(providerDescPath);
 
